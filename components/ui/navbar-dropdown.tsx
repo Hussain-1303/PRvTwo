@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,6 +15,16 @@ interface NavbarDropdownProps {
   forceDarkShadow?: boolean;
 }
 
+const trackResumeDownload = () => {
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'file_download', {
+      file_name: 'Hussain_Vahora_Resume',
+      file_extension: 'pdf',
+      link_text: 'Resume'
+    });
+  }
+};
+
 export default function NavbarDropdown({
   children,
   asChild,
@@ -25,7 +34,7 @@ export default function NavbarDropdown({
     { text: "home", link: "/" },
     { text: "work", link: "/work" },
     { text: "projects", link: "/projects" },
-    { text: "resume", link: "/HussainVahoraResume.pdf" },
+    { text: "resume", link: "/HussainVahoraResume.pdf", onClick: trackResumeDownload },
   ];
 
   return (
@@ -41,6 +50,7 @@ export default function NavbarDropdown({
           <DropdownMenuItem key={idx} asChild>
             <Link
               href={link.link}
+              onClick={link.onClick}
               className="cursor-pointer text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700"
             >
               {link.text}

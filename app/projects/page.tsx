@@ -6,6 +6,7 @@ import { Book, Activity, Code, Gamepad2 } from "lucide-react";
 import NavbarDropdown from "@/components/ui/navbar-dropdown";
 import Link from "next/link";
 
+
 export default function ProjectsPage() {
   const projects: ProjectInfo[] = [
     {

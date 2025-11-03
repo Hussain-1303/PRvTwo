@@ -11,10 +11,20 @@ import { cn } from "@/lib/utils";
 import ProfilePic from "../public/profile.jpg";
 import NavbarDropdown from "@/components/ui/navbar-dropdown";
 
+const trackResumeDownload = () => {
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'file_download', {
+      file_name: 'Hussain_Vahora_Resume',
+      file_extension: 'pdf',
+      link_text: 'Resume'
+    });
+  }
+};
+
 const links = [
   { text: "work", link: "/work" },
   { text: "projects", link: "/projects" },
-  { text: "resume", link: "/HussainVahoraResume.pdf" },
+  { text: "resume", link: "/HussainVahoraResume.pdf", onClick: trackResumeDownload },
 ];
 
 const socialButtonStyle =
@@ -151,6 +161,7 @@ export default function Home() {
                 <Link
                   key={idx}
                   href={link.link}
+                  onClick={link.onClick}
                   className="text-slate-500 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 px-3 py-2 rounded-lg transition font-medium hover:scale-105"
                 >
                   {link.text}
