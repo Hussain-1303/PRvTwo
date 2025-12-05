@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
-//import { GoogleAnalytics } from '@next/third-parties/google';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Hussain Vahora | Portfolio",
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
-};  
+};
 
 export default function RootLayout({
   children,
@@ -25,9 +24,8 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
-          <Analytics />
         </ThemeProvider>
-        {/* <GoogleAnalytics gaId="G-V0H36DLYKF" /> */}
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
