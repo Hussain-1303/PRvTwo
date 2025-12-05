@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
-import { GoogleAnalytics } from '@next/third-parties/google';
+//import { GoogleAnalytics } from '@next/third-parties/google';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
@@ -27,7 +27,8 @@ export default function RootLayout({
           {children}
           <Analytics />
         </ThemeProvider>
-        <GoogleAnalytics gaId="G-V0H36DLYKF" />
+        {/* <GoogleAnalytics gaId="G-V0H36DLYKF" /> */}
+        <SpeedInsights />
       </body>
     </html>
   );
