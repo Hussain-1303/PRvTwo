@@ -6,9 +6,9 @@ import { useState } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdEmail, MdOutlineSpaceDashboard } from "react-icons/md";
 import { cn } from "@/lib/utils";
+import ProfilePic from "@/public/profile.jpg";
 
-
-import ProfilePic from "../public/profile.jpg";
+// import ProfilePic from "../public/profile.jpg";
 import NavbarDropdown from "@/components/ui/navbar-dropdown";
 
 const trackResumeDownload = () => {
